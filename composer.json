@@ -1,0 +1,19 @@
+{
+	"name": "inkl/m2-systemmail",
+	"description": "System Mails for Magento 2",
+	"require": {
+	},
+	"type": "magento2-module",
+	"version": "1.0.0",
+	"license": [
+		"OSL-3.0"
+	],
+	"autoload": {
+		"files": [
+			"registration.php"
+		],
+		"psr-4": {
+			"Inkl\\SystemMail\\": ""
+		}
+	}
+}

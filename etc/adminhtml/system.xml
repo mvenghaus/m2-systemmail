@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="inkl_systemmail" translate="label" type="text" sortOrder="910" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>System Mails</label>
+            <tab>advanced</tab>
+            <resource>Inkl_SystemMail::config_systemmail</resource>
+
+            <group id="emails" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>E-Mails</label>
+
+                <field id="info" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Info E-Mails</label>
+                </field>
+
+                <field id="warning" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Warning E-Mails</label>
+                </field>
+
+                <field id="critical" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Critical E-Mails</label>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>
