@@ -4,7 +4,7 @@ namespace Inkl\SystemMail\Model\Sender;
 
 use Magento\Framework\App\Area;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\Mail\Template\TransportBuilder;
+use Magento\Framework\Mail\Template\TransportBuilderFactory;
 use Magento\Store\Model\Store;
 
 class MailSender
@@ -13,19 +13,19 @@ class MailSender
     const TYPE_WARNING = 'warning';
     const TYPE_CRITICAL = 'critical';
 
-    /** @var TransportBuilder */
-    private $transportBuilder;
+    /** @var TransportBuilderFactory */
+    private $transportBuilderFactory;
     /** @var ScopeConfigInterface */
     private $scopeConfig;
 
     /**
-     * @param TransportBuilder $transportBuilder
+     * @param TransportBuilderFactory $transportBuilderFactory
      * @param ScopeConfigInterface $scopeConfig
      */
-    public function __construct(TransportBuilder $transportBuilder,
+    public function __construct(TransportBuilderFactory $transportBuilderFactory,
                                 ScopeConfigInterface $scopeConfig)
     {
-        $this->transportBuilder = $transportBuilder;
+        $this->transportBuilderFactory = $transportBuilderFactory;
         $this->scopeConfig = $scopeConfig;
     }
 
@@ -38,7 +38,7 @@ class MailSender
         }
         $toEmails = explode("\n", $toEmails);
 
-        $transport = $this->transportBuilder
+        $transport = $this->transportBuilderFactory->create()
             ->setTemplateOptions([
                 'area' => Area::AREA_ADMINHTML,
                 'store' => Store::DEFAULT_STORE_ID
