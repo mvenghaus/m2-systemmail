@@ -36,7 +36,8 @@ class MailSender
         {
             return;
         }
-        $toEmails = explode("\n", $toEmails);
+
+		$toEmails = array_map('trim', explode("\n", $toEmails));
 
         $transport = $this->transportBuilderFactory->create()
             ->setTemplateOptions([
