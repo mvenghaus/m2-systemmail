@@ -4,7 +4,7 @@ namespace Inkl\SystemMail\Model\Sender;
 
 use Magento\Framework\App\Area;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Inkl\SystemMail\Model\TransportBuilderFactory;
+use Magento\Framework\Mail\Template\TransportBuilderFactory;
 use Magento\Store\Model\Store;
 
 class MailSender
