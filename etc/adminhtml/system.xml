@@ -20,6 +20,10 @@
                 <field id="critical" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Critical E-Mails</label>
                 </field>
+
+                <field id="marketing" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Marketing E-Mails</label>
+                </field>
             </group>
 
         </section>

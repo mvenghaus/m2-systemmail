@@ -13,6 +13,7 @@ class MailSender
 	const TYPE_INFO = 'info';
 	const TYPE_WARNING = 'warning';
 	const TYPE_CRITICAL = 'critical';
+	const TYPE_MARKETING = 'marketing';
 
 	/** @var TransportBuilderFactory */
 	private $transportBuilderFactory;
@@ -76,6 +77,11 @@ class MailSender
 	public function sendCritical($subject, $body)
 	{
 		$this->send(self::TYPE_CRITICAL, $subject, $body);
+	}
+
+	public function sendMarketing($subject, $body)
+	{
+		$this->send(self::TYPE_MARKETING, $subject, $body);
 	}
 
 }
