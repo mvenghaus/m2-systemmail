@@ -45,7 +45,7 @@ class MailSender
 
 		$toEmails = array_map('trim', explode("\n", $toEmails));
 
-		$transport = $this->transportBuilderFactory->create()
+		$transportBuilder = $this->transportBuilderFactory->create()
 			->setTemplateOptions([
 				'area' => Area::AREA_ADMINHTML,
 				'store' => Store::DEFAULT_STORE_ID
@@ -55,9 +55,14 @@ class MailSender
 				'type' => strtoupper($type),
 				'subject' => $subject,
 				'body' => $body
-			])
-			->addTo($toEmails)
-			->getTransport();
+			]);
+
+		foreach ($toEmails as $toEmail)
+		{
+			$transportBuilder->addTo($toEmail);
+		}
+
+		$transport = $transportBuilder->getTransport();
 
 		$this->transportBuilderByStore->setFromByStore('general', Store::DEFAULT_STORE_ID);
 
